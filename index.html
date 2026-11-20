@@ -98,13 +98,13 @@
 
         /* Pixel accents in the left margin that flow with scroll */
         .left-pixels { display: none; }
-        @media (min-width: 1200px) {
+        @media (min-width: 1440px) {
             .left-pixels { display: block; position: fixed; left: 0; top: 0; height: 100vh; z-index: 0; pointer-events: none; }
         }
 
         /* ASCII cross */
         .cross-stage { display: none; }
-        @media (min-width: 1200px) {
+        @media (min-width: 1440px) {
             :root { --gutter: clamp(32px, 4.5vw, 96px); }
             .wrap { margin: 0 0 0 calc(var(--gutter) + 36px); }
             .cross-stage {
@@ -144,7 +144,7 @@
         /* Four numbered labels, one at each hook of the cross (wide screens) */
         .cross-wrap { position: relative; width: min(100%, 520px); aspect-ratio: 1; }
         .cross-label { display: none; }
-        @media (min-width: 1200px) {
+        @media (min-width: 1440px) {
             .cross-stage canvas { width: 100%; }
             .cross-label {
                 display: flex; align-items: flex-start; gap: 8px; position: absolute; width: 38%; color: var(--fg);
@@ -158,7 +158,7 @@
             }
             .cross-label:hover { color: var(--accent); }
             .cross-label.l1 { left: 0; top: 3%; }
-            .cross-label.l2 { right: 0; top: 14%; }
+            .cross-label.l2 { right: -24px; top: 14%; }
             .cross-label.l3 { right: 0; bottom: 3%; }
             .cross-label.l4 { left: 0; bottom: 14%; }
         }
@@ -219,15 +219,22 @@
 
         /* Mobile / narrow screens: the figure sits at the top, with stippled bands along the top and bottom edges. */
         .edge-band { display: none; }
-        @media (max-width: 1199px) {
+        .footer-mobile { display: none; }
+        @media (max-width: 1439px) {
             body { display: flex; flex-direction: column; }
             .edge-band { display: block; width: 100%; height: 84px; pointer-events: none; }
             .edge-band.top { order: -3; }
-            .cross-stage { display: flex; justify-content: center; order: -2; position: relative; z-index: 1; pointer-events: none; margin-top: -12px; }
-            .cross-wrap { width: min(78vw, 330px); }
+            .cross-stage { display: flex; justify-content: center; order: 1; position: relative; z-index: 1; pointer-events: none; margin: 16px 0 32px; }
+            .cross-wrap { width: min(56vw, 240px); }
             .cross-stage canvas { width: 100%; aspect-ratio: 1; display: block; }
             .wrap { order: -1; width: 100%; padding-top: 28px; }
-            .edge-band.bottom { order: 1; }
+            h1 { text-align: center; font-size: clamp(38px, 10.5vw, 56px); }
+            header::before, header::after { display: none; }
+            .launch { display: table; margin-left: auto; margin-right: auto; margin-top: 20px; padding: 5px 13px; font-size: 14px; }
+            .edge-band.bottom { display: none; }
+            .wrap { padding-bottom: 8px; }
+            .wrap footer { display: none; }
+            .footer-mobile { display: block; order: 0; text-align: center; margin: 0; padding: 32px 20px 0; color: var(--muted); font-size: 13px; }
         }
     </style>
 </head>
@@ -446,9 +453,10 @@
             <a class="cross-label l3" href="#arm2"><span class="num">3</span> Agentic and Embodied Clinical Intelligence</a>
             <a class="cross-label l4" href="#arm3"><span class="num">4</span> Clinical Translation and Post-Deployment Monitoring</a>
         </div></div>
+    <footer class="footer-mobile">&copy; <span class="year"></span> Frontier Clinical AI</footer>
 
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        document.querySelectorAll('#year, .year').forEach(function(e) { e.textContent = new Date().getFullYear(); });
 
         // A pinned pixel figure that re-arranges itself for each theme as you
         // scroll: cross -> patient -> agent -> monitor.
@@ -608,7 +616,16 @@
             states[1] = logoStamp(states[1], 320, 320, 150);      // multimodal: the logo where the circles meet
             states[2] = logoStamp(states[2], 320, 302, 88);       // patient: the logo on the heart
             states[3] = logoStamp(states[3], 470, 392, 120);      // robot arm: the logo it reaches for
-            states[4] = logoStamp(states[4], 320, 446, 106, 0.16);       // monitoring: the logo on the monitor's chin
+            states[4] = logoStamp(states[4], 320, 444, 64, 0.16);       // monitoring: the logo on the monitor's chin
+
+            // Normalize every shape to the same footprint, centered on the canvas, so the figure holds its size as it morphs.
+            var FIT = 520;
+            states = states.map(function(pts) {
+                var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+                pts.forEach(function(p) { if (p[0] < x0) x0 = p[0]; if (p[0] > x1) x1 = p[0]; if (p[1] < y0) y0 = p[1]; if (p[1] > y1) y1 = p[1]; });
+                var sc = FIT / Math.max(x1 - x0, y1 - y0), cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+                return pts.map(function(p) { var q = [320 + (p[0] - cx) * sc, 320 + (p[1] - cy) * sc]; if (p[2] !== undefined) q.push(p[2]); return q; });
+            });
 
             // ---- particles ----
             var N = Math.max.apply(null, states.map(function(p) { return p.length; }));
@@ -673,11 +690,13 @@
             // ---- scroll -> state ----
             var labels = document.querySelectorAll('.cross-label');
             var arms = Array.prototype.slice.call(document.querySelectorAll('.arm'));
+            var narrow = window.matchMedia('(max-width: 1439px)');
             function targetF() {
+                if (narrow.matches) return 0;   // mobile layout: always the cross
                 var vh = window.innerHeight, y = window.scrollY, f = 0;
                 for (var k = 0; k < arms.length; k++) {
                     var top = arms[k].getBoundingClientRect().top + y;
-                    var end = top - vh * 0.3, start = end - vh * 0.6;
+                    var start = Math.max(0, top - vh * 0.9), end = Math.max(top - vh * 0.3, start + vh * 0.4);   // never begin before the first scroll
                     var t = Math.min(1, Math.max(0, (y - start) / (end - start)));
                     if (t > 0) f = Math.max(f, k + t);
                 }
@@ -759,7 +778,7 @@
             function frame() {
                 var t = reduce ? 0 : performance.now() / 1000, sx = reduce ? 0 : window.scrollY * 0.25;
                 bands.forEach(function(b) {
-                    if (!b.w || b.cv.offsetParent === null) return;
+                    if (!b.w || !b.cv.offsetWidth) return;
                     var ctx = b.cv.getContext('2d');
                     ctx.setTransform(b.dpr, 0, 0, b.dpr, 0, 0); ctx.clearRect(0, 0, b.w, b.h);
                     for (var i = 0; i < b.dots.length; i++) {
