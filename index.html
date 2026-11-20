@@ -3,515 +3,782 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embodied Clinical Intelligence Colloquium (ECLIC)</title>
-    <meta name="description" content="Embodied Clinical Intelligence establishes a new paradigm where AI systems are situated in clinical environments, interact with clinicians, and assist in real-time clinical workflows. A research community advancing AI agents in medicine.">
-    <meta name="keywords" content="embodied clinical intelligence, AI in medicine, clinical AI agents, medical AI research, AI clinical workflows, clinical decision support, healthcare AI, AI in radiology, large language models medicine, reinforcement learning clinical">
-    <meta name="color-scheme" content="light dark">
+    <title>Frontier Clinical AI</title>
+    <meta name="description" content="A weekly journal club on frontier clinical AI, launching Summer 2027: patient world models and digital twins, agentic and embodied clinical intelligence, and clinical translation and post-deployment monitoring. Classic papers alongside frontier work, showing how the field evolved.">
+    <meta name="keywords" content="frontier clinical AI, journal club, patient world models, digital twins, agentic AI medicine, embodied clinical intelligence, clinical translation, post-deployment monitoring, medical AI research, large language models medicine, healthcare AI">
+    <meta name="color-scheme" content="light">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" href="favicon.png?v=3" />
-    <link rel="apple-touch-icon" href="apple-touch-icon-v2.png" />
-    <link rel="canonical" href="https://embodied-clinical-intelligence.github.io">
+    <link rel="icon" href="favicon.ico?v=6" sizes="any" />
+    <link rel="icon" type="image/png" href="favicon.png?v=6" />
+    <link rel="apple-touch-icon" href="apple-touch-icon-v2.png?v=6" />
+    <link rel="canonical" href="https://frontier-clinical-ai.github.io">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Embodied Clinical Intelligence Colloquium (ECLIC)">
-    <meta property="og:description" content="A research community advancing embodied AI systems in medicine. Unapolegetically technical, uncompromisingly clinical.">
+    <meta property="og:title" content="Frontier Clinical AI">
+    <meta property="og:description" content="A weekly journal club at the frontier of clinical AI: world models, agents, and real-world deployment. Unapologetically technical, uncompromisingly clinical.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://embodied-clinical-intelligence.github.io">
-    <meta property="og:image" content="https://embodied-clinical-intelligence.github.io/favicon.png">
-    <meta property="og:site_name" content="Embodied Clinical Intelligence Colloquium">
+    <meta property="og:url" content="https://frontier-clinical-ai.github.io">
+    <meta property="og:image" content="https://frontier-clinical-ai.github.io/favicon.png">
+    <meta property="og:site_name" content="Frontier Clinical AI">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Embodied Clinical Intelligence Colloquium (ECLIC)">
-    <meta name="twitter:description" content="Research community advancing embodied AI systems in clinical medicine — agents, workflows, and decision support.">
-    <meta name="twitter:image" content="https://embodied-clinical-intelligence.github.io/favicon.png">
+    <meta name="twitter:title" content="Frontier Clinical AI">
+    <meta name="twitter:description" content="Weekly journal club on patient world models, agentic and embodied clinical intelligence, and clinical translation and post-deployment monitoring.">
+    <meta name="twitter:image" content="https://frontier-clinical-ai.github.io/favicon.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ResearchOrganization",
-        "name": "Embodied Clinical Intelligence Colloquium",
-        "alternateName": "ECLIC",
-        "url": "https://embodied-clinical-intelligence.github.io",
-        "logo": "https://embodied-clinical-intelligence.github.io/favicon.png",
-        "description": "A research community advancing embodied clinical intelligence — AI systems situated in clinical environments that interact with clinicians and assist in real-time clinical workflows and decision-making.",
+        "name": "Frontier Clinical AI",
+        "url": "https://frontier-clinical-ai.github.io",
+        "logo": "https://frontier-clinical-ai.github.io/favicon.png",
+        "description": "A research community advancing frontier clinical AI: patient world models and digital twins, agentic and embodied clinical intelligence, and clinical translation and post-deployment monitoring.",
         "knowsAbout": [
+            "Frontier Clinical AI",
+            "Patient World Models",
+            "Digital Twins",
+            "Agentic AI in Medicine",
             "Embodied Clinical Intelligence",
-            "Artificial Intelligence in Medicine",
-            "Clinical AI Agents",
-            "Reinforcement Learning",
-            "Vision-Language Models",
-            "Medical AI Evaluation",
-            "Clinical Decision Support Systems",
-            "AI in Radiology"
+            "Clinical Translation",
+            "Post-Deployment Monitoring",
+            "Medical AI Evaluation"
         ],
         "event": {
             "@type": "EducationEvent",
-            "name": "ECLIC Workshop Series",
-            "description": "Workshop series covering technical AI and clinical topics at the intersection of embodied intelligence and medicine",
+            "name": "Frontier Clinical AI",
+            "description": "Weekly journal club pairing classic and frontier papers across three areas of clinical AI",
             "organizer": {
                 "@type": "Organization",
-                "name": "Embodied Clinical Intelligence Colloquium"
+                "name": "Frontier Clinical AI"
             },
             "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
             "about": [
-                "Reinforcement Learning for Clinical AI",
-                "Vision-Language Models in Medicine",
-                "Clinical AI Evaluation",
-                "AI Agents in Healthcare"
+                "Patient World Models and Digital Twins",
+                "Agentic and Embodied Clinical Intelligence",
+                "Clinical Translation and Post-Deployment Monitoring"
             ]
         }
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400;500;550;600;700&family=Manrope:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         :root {
             --bg: #ffffff;
-            --fg: #000000;
-            --muted: #57606a;
+            --fg: #111318;
+            --muted: #5b6370;
+            --line: #e5edf5; --surface: #f8fafd;
             --accent: #1f6feb;
-            --card-border: rgba(13, 17, 23, 0.08);
-            --maxw: 960px;
-            --padx: 40px;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #0d1117;
-                --fg: #c9d1d9;
-                --muted: #8b949e;
-                --accent: #58a6ff;
-                --card-border: rgba(255, 255, 255, 0.25);
-            }
-        }
-        html[data-theme="dark"] {
-            --bg: #0d1117;
-            --fg: #c9d1d9;
-            --muted: #8b949e;
-            --accent: #58a6ff;
-            --card-border: rgba(255, 255, 255, 0.25);
-        }
-        html[data-theme="light"] {
-            --bg: #ffffff;
-            --fg: #000000;
-            --muted: #57606a;
-            --accent: #1f6feb;
-            --card-border: rgba(13, 17, 23, 0.08);
+            --accent-soft: #eaf2ff;
+            --card: #ffffff; --shade: 16,24,40; --glow: 0.16;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html {
-            overflow-y: scroll;
-            scrollbar-gutter: stable;
-        }
-        html, body { height: 100%; }
+        html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-gutter: stable; }
 
         body {
-            font: 16px/1.7 "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font: 400 16px/1.7 "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: var(--fg);
             background: var(--bg);
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, .arm-kicker, .session-label, .tag, .tagline, .n, .t, button {
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        a {
-            color: var(--fg);
-            text-decoration: underline;
-        }
-        a:hover { text-decoration: none; }
+        a { color: inherit; text-decoration: none; }
 
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background: transparent;
-            border: 1px solid var(--card-border);
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--fg);
-            font-size: 18px;
-            transition: border-color 0.2s ease;
-        }
-        .theme-toggle:hover {
-            border-color: var(--fg);
+        .wrap { max-width: 760px; margin: 0 auto; padding: 96px 28px 64px; position: relative; z-index: 2; }
+
+        /* Pixel accents in the left margin that flow with scroll */
+        .left-pixels { display: none; }
+        @media (min-width: 1200px) {
+            .left-pixels { display: block; position: fixed; left: 0; top: 0; height: 100vh; z-index: 0; pointer-events: none; }
         }
 
-        .ascii-video-wrap {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: calc(300px + var(--maxw) - 300px);
-            z-index: 0;
-            pointer-events: none;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            /* Opaque bg matching the page so the video's flat background can
-               blend into it (mix-blend-mode blends within this stacking
-               context, not the whole page). Makes the video rectangle seamless. */
-            background: var(--bg);
-        }
-        .ascii-video-wrap video {
-            max-width: 780px;
-            max-height: 850px;
-            object-fit: contain;
-            opacity: 1;
-            /* Blend the video's flat background into the page so its rectangle
-               edge is mathematically invisible regardless of color management:
-               white bg + multiply (light), black bg + screen (dark). */
-            mix-blend-mode: multiply;
-        }
-        @media (prefers-color-scheme: dark) {
-            .ascii-video-wrap video { mix-blend-mode: screen; }
-        }
-        html[data-theme="dark"] .ascii-video-wrap video { mix-blend-mode: screen; }
-        html[data-theme="light"] .ascii-video-wrap video { mix-blend-mode: multiply; }
-        @media (max-width: 1400px) {
-            /* Stack the layout: video on top, content below. The <aside> follows
-               <main> in the DOM, so flex ordering lifts it above the title.
-               Override the base `height:100%` to auto, else the fixed-height
-               flex column squishes the video into a sliver. */
-            body {
-                display: flex;
-                flex-direction: column;
-                height: auto;
-                min-height: 100%;
+        /* ASCII cross */
+        .cross-stage { display: none; }
+        @media (min-width: 1200px) {
+            :root { --gutter: clamp(32px, 4.5vw, 96px); }
+            .wrap { margin: 0 0 0 calc(var(--gutter) + 36px); }
+            .cross-stage {
+                display: flex; position: fixed; top: 0; bottom: 0; right: 0;
+                left: calc(var(--gutter) + 36px + 760px);
+                align-items: center; justify-content: center;
+                z-index: 1; pointer-events: none; user-select: none;
             }
-            .ascii-video-wrap {
-                order: -1;
-                flex-shrink: 0;
-                position: relative;
-                left: 0;
-                top: auto;
-                right: auto;
-                bottom: auto;
-                width: 100%;
-                justify-content: center;
-                padding: 24px 0 8px;
-            }
-            .ascii-video-wrap video {
-                max-width: 450px;
-                max-height: 560px;
-            }
-        }
-
-        .wrap {
-            max-width: var(--maxw);
-            margin: 0;
-            padding: 60px 40px 80px 240px;
-            position: relative;
-            z-index: 2;
-        }
-        @media (max-width: 1400px) {
-            .wrap {
-                padding: 40px 48px 48px;
-                margin: 0 auto;
-            }
-            .wrap h1 { margin-top: 8px; margin-bottom: 48px; text-align: center; }
-            .wrap footer { text-align: center; margin-top: 12px; padding-bottom: 24px; }
+            .cross-stage canvas { width: 100%; aspect-ratio: 1; display: block; }
         }
 
         h1 {
-            font-family: "Spline Sans Mono", monospace;
-            font-weight: 500;
-            font-size: clamp(32px, 5vw, 42px);
-            line-height: 1.2;
-            margin-bottom: 40px;
-            letter-spacing: -0.3px;
+            font-weight: 700;
+            font-size: clamp(36px, 6vw, 56px);
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+        }
+        h1 .accent { color: var(--accent); }
+        h1 span:not(.accent) { display: block; }
+        .tagline { margin-top: 20px; font-size: 18px; color: var(--muted); max-width: 560px; line-height: 1.55; }
+
+        .launch {
+            display: inline-block; margin-top: 28px; padding: 8px 18px;
+            font-size: 17px; font-weight: 600; color: var(--fg);
+            background: #fff; border: 1.5px solid var(--accent); border-radius: 0;
+        }
+        .about { margin-top: 36px; }
+        .lead {
+            font-size: clamp(17px, 1.6vw, 21px); line-height: 1.55; font-weight: 500;
+            letter-spacing: -0.02em; color: var(--muted);
+        }
+        .lead strong { color: var(--accent); font-weight: 600; }
+        .vision { font-size: 16px; line-height: 1.75; color: var(--fg); }
+        .vision + .vision { margin-top: 16px; }
+        .vision strong { font-weight: 600; }
+
+        /* Four numbered labels, one at each hook of the cross (wide screens) */
+        .cross-wrap { position: relative; width: min(100%, 520px); aspect-ratio: 1; }
+        .cross-label { display: none; }
+        @media (min-width: 1200px) {
+            .cross-stage canvas { width: 100%; }
+            .cross-label {
+                display: flex; align-items: flex-start; gap: 8px; position: absolute; width: 38%; color: var(--fg);
+                font-size: 13px; font-weight: 500; line-height: 1.35; text-decoration: none;
+                pointer-events: auto; transition: opacity .25s ease, color .15s ease;
+            }
+            .cross-label .num {
+                flex: none; display: inline-flex; align-items: center; justify-content: center;
+                width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #fff;
+                font-size: 11px; font-weight: 700; margin-top: 0;
+            }
+            .cross-label:hover { color: var(--accent); }
+            .cross-label.l1 { left: 0; top: 3%; }
+            .cross-label.l2 { right: 0; top: 14%; }
+            .cross-label.l3 { right: 0; bottom: 3%; }
+            .cross-label.l4 { left: 0; bottom: 14%; }
         }
 
-        hr {
-            border: none;
-            height: 1px;
-            background: var(--card-border);
-            margin: 48px 0;
-        }
 
-        h2 {
-            font-family: "Spline Sans Mono", monospace;
-            font-weight: 500;
-            font-size: clamp(22px, 3vw, 28px);
-            letter-spacing: -0.3px;
-            color: var(--fg);
-            margin-bottom: 20px;
-        }
+        .format { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 24px; font-size: 13px; color: var(--muted); align-items: center; }
+        .format b { color: var(--fg); font-weight: 600; }
 
-        .vision {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--fg);
-            text-align: left;
+        /* Hairline dividers. */
+        /* Hairlines: run just a little past the content column, not to the screen edges. */
+        hr { border: none; height: 1px; background: var(--line); margin: 56px -28px 40px; }
+        header { position: relative; padding: 30px 0 28px; }
+        header::before, header::after, .arm + .arm::before {
+            content: ''; position: absolute; left: -28px; right: -28px; height: 1px; background: var(--line);
         }
+        header::before { top: 0; }
+        header::after { bottom: 0; }
+        .arm + .arm { padding-top: 48px; margin-top: 56px; }
+        .arm + .arm::before { top: 0; }
+        body { overflow-x: clip; }
 
-        .vision + .vision {
-            margin-top: 24px;
-        }
+        h2 { font-weight: 700; font-size: 28px; letter-spacing: -0.025em; margin-bottom: 8px; }
 
-        .schedule {
-            margin-top: 0;
-        }
+        .arm { margin-top: 40px; padding-top: 0; scroll-margin-top: 32px; position: relative; }
+        .arm-header { padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+        .arm-kicker { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; }
+        .arm-header h3 { font-weight: 700; font-size: 22px; letter-spacing: -0.02em; line-height: 1.3; margin: 4px 0 6px; }
+        .arm-blurb { font-size: 15px; color: var(--muted); line-height: 1.6; }
 
         .session {
-            padding: 24px 0;
+            margin-top: 12px; padding: 22px 26px;
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 0;
         }
-        .session + .session {
-            border-top: 1px solid var(--card-border);
-        }
+        .arm-header { border-bottom: none; }
+        .session-label { font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+        .session-title { font-weight: 600; font-size: 17px; line-height: 1.4; letter-spacing: -0.01em; margin-bottom: 12px; }
 
-        .session-label {
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        .session-label.technical { color: #ef4444; }
-        .session-label.clinical { color: #3b82f6; }
-
-        /* Grey out in dark mode (OS preference), but only when the user hasn't
-           explicitly forced a theme via the toggle. */
-        @media (prefers-color-scheme: dark) {
-            html:not([data-theme]) .session-label.technical,
-            html:not([data-theme]) .session-label.clinical { color: var(--muted); }
-        }
-        html[data-theme="dark"] .session-label.technical,
-        html[data-theme="dark"] .session-label.clinical { color: var(--muted); }
-        /* Explicit light toggle always restores the accent colors, even when
-           the OS is in dark mode. */
-        html[data-theme="light"] .session-label.technical { color: #ef4444; }
-        html[data-theme="light"] .session-label.clinical { color: #3b82f6; }
-
-        .session-title {
-            font-family: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
-            font-weight: 500;
-            font-size: 1.05rem;
-            color: var(--fg);
-            margin-bottom: 10px;
-        }
-
-        .session-readings {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+        .session-readings { list-style: none; }
         .session-readings li {
-            font-size: 14px;
-            color: var(--muted);
-            line-height: 1.6;
-            padding: 2px 0 2px 16px;
-            position: relative;
+            display: flex; gap: 12px; align-items: baseline;
+            font-size: 14px; line-height: 1.55; color: var(--muted); padding: 4px 0;
         }
-        .session-readings li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--card-border);
-        }
-        .session-readings li a {
-            color: var(--muted);
-        }
+        .session-readings li a { color: var(--fg); opacity: .8; border-bottom: 1px solid transparent; }
+        .session-readings li a:hover { opacity: 1; border-bottom-color: var(--muted); }
 
-        footer {
-            margin-top: 16px;
-            color: var(--muted);
-            font-size: 13px;
-            text-align: left;
-            padding: 16px 0 48px;
+        .tag {
+            flex: none; width: 64px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em;
+            text-transform: uppercase; color: var(--muted);
         }
+        .tag.sota { color: var(--accent); }
+        .format .tag { width: auto; margin-right: 6px; }
 
-        @media (max-width: 600px) {
-            .wrap { padding: 40px 32px 12px; }
+
+        footer { margin-top: 56px; color: var(--muted); font-size: 13px; }
+
+        @media (max-width: 600px) { .wrap { padding: 80px 20px 48px; } }
+
+        /* Mobile / narrow screens: the figure sits at the top, with stippled bands along the top and bottom edges. */
+        .edge-band { display: none; }
+        @media (max-width: 1199px) {
+            body { display: flex; flex-direction: column; }
+            .edge-band { display: block; width: 100%; height: 84px; pointer-events: none; }
+            .edge-band.top { order: -3; }
+            .cross-stage { display: flex; justify-content: center; order: -2; position: relative; z-index: 1; pointer-events: none; margin-top: -12px; }
+            .cross-wrap { width: min(78vw, 330px); }
+            .cross-stage canvas { width: 100%; aspect-ratio: 1; display: block; }
+            .wrap { order: -1; width: 100%; padding-top: 28px; }
+            .edge-band.bottom { order: 1; }
         }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <i class="fa-solid fa-moon" id="theme-icon"></i>
-    </button>
 
     <main class="wrap">
         <header>
-            <h1>Embodied Clinical Intelligence Colloquium (ECLIC)</h1>
+            <h1><span class="accent">Frontier Clinical AI</span></h1>
         </header>
-        <section aria-label="About">
-            <p class="vision">
-                AI systems are currently siloed into highly-specific clinical tasks and are not suitable to handle the complexities and nuances of clinical care.
-                <strong>Embodied Clinical Intelligence</strong> establishes a new paradigm in which AI systems ground themselves in clinical context, act within real-world clinical workflows, 
-                and interact with clinicians in real-time.
-            </p>
-            <p class="vision">
-                We are a community of researchers at the intersection of AI and medicine that are <strong>unapologetically technical and uncompromisingly clinical</strong>. In our mission of pushing the frontiers of research in embodied clinical intelligence,
-                we host workshops, fireside chats, and guest lectures, to build the community advancing the next generation of embodied AI systems in medicine.
+        <div class="launch">Launching Summer 2027</div>
+        <section class="about" aria-label="About">
+            <p class="lead">
+                AI is moving fast, but it&rsquo;s proven hard to <strong>translate frontier AI into routine clinical workflows</strong>,
+                and harder still to turn into <strong>improvements in patient outcomes</strong>.
+                In this journal club, we discuss classic and frontier papers, work through the open problems, and ask what it would take to build a
+                <strong>safe and robust path</strong> that gets today&rsquo;s AI research to patients and doctors faster.
             </p>
         </section>
 
         <hr />
 
-        <section aria-label="Workshop Series">
-        <h2>Workshop Series</h2>
+        <section aria-label="Themes and Readings">
+        <h2>Themes and Readings</h2>
         <div class="schedule">
+        <section class="arm" id="foundation" aria-label="Multimodal Foundation Models">
+            <div class="arm-header">
+                <h3>Multimodal Foundation Models</h3>
+                <p class="arm-blurb">The models underneath it all: from transformers and contrastive pretraining to vision-language and EHR foundation models built on clinical data.</p>
+            </div>
             <div class="session">
-                <div class="session-label technical">Technical</div>
-                <div class="session-title">Session 1: Beyond the OpenClaw Hype: From Reinforcement Learning to ReAct</div>
+                <div class="session-title">From Transformers to Foundation Models</div>
                 <ul class="session-readings">
-                    <li><a href="http://incompleteideas.net/book/the-book.html">Reinforcement Learning: An Introduction (Sutton and Barto) [1992]</a></li>
-                    <li><a href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models [2022]</a></li>
-                    <li><a href="https://arxiv.org/abs/2303.11366">Reflexion: Language Agents with Verbal Reinforcement Learning [2023]</a></li>
-                    <li><a href="https://arxiv.org/abs/2405.15793">SWE-Agent: Agent-Computer Interfaces Enable Automated Software Engineering [2024]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need [2017]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding [2019]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/2108.07258">On the Opportunities and Risks of Foundation Models [2021]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2404.18416">Capabilities of Gemini Models in Medicine (Med-Gemini) [2024]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-label clinical">Clinical</div>
-                <div class="session-title">Session 2: Why We Can't Just Throw AI Algorithms at the EHR: The Messy Reality of Clinical Data</div>
+                <div class="session-title">Vision-Language Models: Learning Medicine from Images and Text</div>
                 <ul class="session-readings">
-                    <li><a href="https://doi.org/10.1148/ryai.210315">RadImageNet: An Open Radiologic Deep Learning Research Dataset for Effective Transfer Learning [2022]</a></li>
-                    <li><a href="https://doi.org/10.1038/s41591-022-01981-2">Multimodal Biomedical AI [2022]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/2010.00747">Contrastive Learning of Medical Visual Representations from Paired Images and Text (ConVIRT) [2020]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/2103.00020">Learning Transferable Visual Models From Natural Language Supervision (CLIP) [2021]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2304.08485">Visual Instruction Tuning (LLaVA) [2023]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2306.00890">LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day [2023]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2303.00915">BiomedCLIP: A Multimodal Biomedical Foundation Model Pretrained from Fifteen Million Scientific Image-Text Pairs [2023]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2307.14334">Towards Generalist Biomedical AI (Med-PaLM M) [2023]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-label technical">Technical</div>
-                <div class="session-title">Session 3: Vision-Language Models</div>
+                <div class="session-title">Radiology: From Chest X-ray Datasets to Report Generation</div>
                 <ul class="session-readings">
-                    <li><a href="https://arxiv.org/abs/2103.00020">Learning Transferable Visual Models From Natural Language Supervision (CLIP) [2021]</a></li>
-                    <li><a href="https://arxiv.org/abs/2304.08485">Visual Instruction Tuning (LLaVA) [2023]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/1705.02315">ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases [2017]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1148/ryai.210315">RadImageNet: An Open Radiologic Deep Learning Research Dataset for Effective Transfer Learning [2022]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1016/j.patter.2023.100802">Evaluating Progress in Automatic Chest X-ray Radiology Report Generation (RadCliQ) [2023]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1186/s12880-024-01435-w">An Open-source Fine-tuned Large Language Model for Radiological Impression Generation: A Multi-Reader Performance Study [2024]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2406.04449">MAIRA-2: Grounded Radiology Report Generation [2024]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-label clinical">Clinical</div>
-                <div class="session-title">Session 4: A Brief History of Clinical AI Evaluation: The Pitfalls of Automated Evaluation Metrics</div>
+                <div class="session-title">Language Models for the Electronic Health Record</div>
                 <ul class="session-readings">
-                    <li><a href="https://arxiv.org/abs/1705.02315">ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases [2017]</a></li>
-                    <li><a href="https://doi.org/10.1016/j.patter.2023.100802">Evaluating progress in automatic chest X-ray radiology report generation (RadCliQ) [2023]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1038/s41591-022-01981-2">Multimodal Biomedical AI [2022]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1038/s41746-022-00742-2">A Large Language Model for Electronic Health Records (GatorTron) [2022]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1038/s41586-023-06160-y">Health System-Scale Language Models Are All-Purpose Prediction Engines (NYUTron) [2023]</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="arm arm-1" id="arm1" aria-label="Patient World Models and Digital Twins">
+            <div class="arm-header">
+                <h3>Patient World Models and Digital Twins</h3>
+                <p class="arm-blurb">Can we learn a simulator of the patient? From latent world models in control to generative models of health trajectories and physiological digital twins.</p>
+            </div>
+            <div class="session">
+                <div class="session-title">What Is a World Model? Learning to Dream Before Acting</div>
+                <ul class="session-readings">
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/1803.10122">World Models (Ha and Schmidhuber) [2018]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/1912.01603">Dream to Control: Learning Behaviors by Latent Imagination (Dreamer) [2020]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2301.04104">Mastering Diverse Domains through World Models (DreamerV3) [2023]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2501.03575">Cosmos World Foundation Model Platform for Physical AI [2025]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-label technical">Technical</div>
-                <div class="session-title">Session 5: Reinforcement Learning with Large Language Models</div>
+                <div class="session-title">Digital Twins: From Cardiac Physiology to the Whole Patient</div>
                 <ul class="session-readings">
-                    <li><a href="https://link.springer.com/article/10.1007/BF00992696">REINFORCE: Simple statistical gradient-following algorithms for connectionist reinforcement learning [1992]</a></li>
-                    <li><a href="https://arxiv.org/abs/2203.02155">PPO: Training Language Models to Follow Instructions with Human Feedback (RLHF) [2022]</a></li>
-                    <li><a href="https://arxiv.org/abs/2402.03300">GRPO: DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models [2024]</a></li>
-                    <li><a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning [2025]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1093/eurheartj/ehaa159">The "Digital Twin" to Enable the Vision of Precision Cardiology [2020]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1038/s41586-023-05881-4">Foundation Models for Generalist Medical Artificial Intelligence [2023]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-label clinical">Clinical</div>
-                <div class="session-title">Session 6: Lessons Learned from Running Clinical Reader Studies</div>
+                <div class="session-title">Generative Models of Patient Trajectories: Predicting the Next Clinical Event</div>
                 <ul class="session-readings">
-                    <li><a href="https://doi.org/10.1186/s12880-024-01435-w">An Open-source Fine-tuned Large Language Model for Radiological Impression Generation: A Multi-Reader Performance Study [2024]</a></li>
-                    <li>Radiologically Relevant Clinical History Summarization With Large Language Models: A Multi-Reader Performance Study [2026]</li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/1511.05942">Doctor AI: Predicting Clinical Events via Recurrent Neural Networks [2016]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1038/s41746-021-00455-y">Med-BERT: Pretrained Contextualized Embeddings on Large-Scale Structured Electronic Health Records [2021]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1038/s41746-024-01235-0">Zero Shot Health Trajectory Prediction Using Transformer (ETHOS) [2024]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1038/s41586-025-09529-3">Learning the Natural History of Human Disease with Generative Transformers (Delphi-2M) [2025]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2508.12104">Generative Medical Event Models Improve with Scale (CoMET) [2025]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-label technical">Technical</div>
-                <div class="session-title">Session 7: Developing Agents from a Reinforcement Learning Perspective</div>
+                <div class="session-title">Counterfactual Treatment Simulation: Offline RL and the Limits of Learning from Records</div>
                 <ul class="session-readings">
-                    <li><a href="https://doi.org/10.1016/S0004-3702(98)00023-X">Planning and Acting In Partially Observable Stochastic Domains (POMDP) [1998]</a></li>
-                    <li>RL Environments: <a href="https://huggingface.co/blog/openenv">OpenEnv</a>, <a href="https://www.primeintellect.ai/">Prime Intellect</a></li>
-                    <li><a href="https://arxiv.org/abs/2404.07972">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments [2024]</a></li>
-                    <li><a href="https://arxiv.org/abs/2501.12326">UI-TARS: Pioneering Automated GUI Interaction with Native Agents [2025]</a></li>
-                    <li><a href="https://arxiv.org/abs/2508.09123">OPENCUA: Open Foundations for Computer-Use Agents [2025]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://arxiv.org/abs/1711.09602">Deep Reinforcement Learning for Sepsis Treatment [2017]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1038/s41591-018-0213-5">The Artificial Intelligence Clinician Learns Optimal Treatment Strategies for Sepsis in Intensive Care [2018]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1038/s41591-018-0310-5">Guidelines for Reinforcement Learning in Healthcare [2019]</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="arm arm-2" id="arm2" aria-label="Agentic and Embodied Clinical Intelligence">
+            <div class="arm-header">
+                <h3>Agentic and Embodied Clinical Intelligence</h3>
+                <p class="arm-blurb">AI that acts: from expert systems to language agents that operate the EHR, converse with patients, and move through the physical world of care.</p>
+            </div>
+            <div class="session">
+                <div class="session-title">A Lineage of Clinical Agents: From MYCIN to ReAct</div>
+                <ul class="session-readings">
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1016/0010-4809(75)90009-9">Computer-Based Consultations in Clinical Therapeutics: Explanation and Rule Acquisition Capabilities of the MYCIN System [1975]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="http://incompleteideas.net/book/the-book.html">Reinforcement Learning: An Introduction (Sutton and Barto) [1998]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models [2022]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2303.11366">Reflexion: Language Agents with Verbal Reinforcement Learning [2023]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-label clinical">Clinical</div>
-                <div class="session-title">Session 8: Why Computer Scientists Need to Shadow Clinicians</div>
+                <div class="session-title">Conversational Diagnostic Agents: Talking with the Patient</div>
                 <ul class="session-readings">
-                    <li>Case Study: Hallucinated Comparisons in Radiology Report Generation Vision-Language Models</li>
-                    <li>Experience shadowing Dr. Jae Ho Sohn in the reading room</li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1038/s41586-023-06291-2">Large Language Models Encode Clinical Knowledge (Med-PaLM) [2023]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1038/s41586-025-08866-7">Towards Conversational Diagnostic Artificial Intelligence (AMIE) [2025]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2405.02957">Agent Hospital: A Simulacrum of Hospital with Evolvable Medical Agents [2024]</a></li>
                 </ul>
             </div>
 
             <div class="session">
-                <div class="session-title">Conclusion: Towards Embodied Clinical Intelligence</div>
+                <div class="session-title">Agents in the Electronic Health Record: Computer Use in Clinical Workflows</div>
                 <ul class="session-readings">
-                    <li><a href="https://doi.org/10.1038/s41746-024-01083-y">Evaluating Large Language Models as Agents in the Clinic [2024]</a></li>
-                    <li><a href="https://doi.org/10.1038/s41586-025-08866-7">Towards Conversational Diagnostic Artificial Intelligence (AMIE) [2025]</a></li>
-                    <li>EHRGym: Training and Evaluating Computer-Use Agents in Clinical Workflow Environments Towards Embodied Clinical Intelligence</li>
-                    <li>Future Directions</li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1016/S0004-3702(98)00023-X">Planning and Acting in Partially Observable Stochastic Domains (POMDP) [1998]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2404.07972">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments [2024]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1038/s41746-024-01083-y">Evaluating Large Language Models as Agents in the Clinic [2024]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2501.14654">MedAgentBench: A Virtual EHR Environment to Benchmark Medical LLM Agents [2025]</a></li>
                 </ul>
             </div>
+
+            <div class="session">
+                <div class="session-title">Embodiment: Robots in the Operating Room and Language Models in the Physical World</div>
+                <ul class="session-readings">
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1126/scitranslmed.aad9398">Supervised Autonomous Robotic Soft Tissue Surgery (STAR) [2016]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2204.01691">Do As I Can, Not As I Say: Grounding Language in Robotic Affordances (SayCan) [2022]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2307.15818">RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control [2023]</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="arm arm-3" id="arm3" aria-label="Clinical Translation and Post-Deployment Monitoring">
+            <div class="arm-header">
+                <h3>Clinical Translation and Post-Deployment Monitoring</h3>
+                <p class="arm-blurb">What happens after the paper? Evaluation, trials, dataset shift, and the long, unglamorous work of keeping clinical AI safe once it meets patients.</p>
+            </div>
+            <div class="session">
+                <div class="session-title">When Models Meet the Ward: Famous Failures and Hard Lessons</div>
+                <ul class="session-readings">
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1126/science.aax2342">Dissecting Racial Bias in an Algorithm Used to Manage the Health of Populations [2019]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1145/3313831.3376718">A Human-Centered Evaluation of a Deep Learning System Deployed in Clinics for the Detection of Diabetic Retinopathy [2020]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1001/jamainternmed.2021.2626">External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients [2021]</a></li>
+                </ul>
+            </div>
+
+            <div class="session">
+                <div class="session-title">Dataset Shift and Model Drift: Why Good Models Go Bad</div>
+                <ul class="session-readings">
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1093/jamia/ocx030">Calibration Drift in Regression and Machine Learning Models for Acute Kidney Injury [2017]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1056/NEJMc2104626">The Clinician and Dataset Shift in Artificial Intelligence [2021]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1038/s41746-022-00611-y">Clinical Artificial Intelligence Quality Improvement: Towards Continual Monitoring and Updating of AI Algorithms in Healthcare [2022]</a></li>
+                </ul>
+            </div>
+
+            <div class="session">
+                <div class="session-title">From Benchmarks to Bedside: Evaluating Clinical AI and LLMs in Practice</div>
+                <ul class="session-readings">
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1001/jama.2016.17216">Development and Validation of a Deep Learning Algorithm for Detection of Diabetic Retinopathy in Retinal Fundus Photographs [2016]</a></li>
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.1016/S2589-7500(19)30123-2">A Comparison of Deep Learning Performance Against Health-Care Professionals in Detecting Diseases from Medical Imaging [2019]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1001/jamanetworkopen.2024.40969">Large Language Model Influence on Diagnostic Reasoning: A Randomized Clinical Trial [2024]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1001/jama.2024.21700">Testing and Evaluation of Health Care Applications of Large Language Models: A Systematic Review [2025]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://arxiv.org/abs/2505.08775">HealthBench: Evaluating Large Language Models Towards Improved Human Health [2025]</a></li>
+                </ul>
+            </div>
+
+            <div class="session">
+                <div class="session-title">Living Systems: Deployment, Governance, and Continuous Monitoring</div>
+                <ul class="session-readings">
+                    <li><span class="tag classic">Classic</span><a href="https://doi.org/10.2196/15182">Sepsis Watch, a Real-Time Machine Learning System: Implementation at Duke [2020]</a></li>
+                    <li><span class="tag sota">Frontier</span><a href="https://doi.org/10.1056/CAT.23.0404">Ambient Artificial Intelligence Scribes to Alleviate the Burden of Clinical Documentation [2024]</a></li>
+                </ul>
+            </div>
+        </section>
         </div>
         </section>
 
-        <footer style="user-select:none;">
-            <span>&copy; <span id="year"></span> Embodied Clinical Intelligence</span>
+        <footer>
+            <span>&copy; <span id="year"></span> Frontier Clinical AI</span>
         </footer>
     </main>
 
-    <aside class="ascii-video-wrap" aria-hidden="true">
-        <video id="ascii-video" autoplay muted loop playsinline aria-label="ASCII art animation of a clinical robot representing embodied clinical intelligence"></video>
-    </aside>
+    <canvas class="left-pixels" id="left-pixels" aria-hidden="true"></canvas>
+    <canvas class="edge-band top" id="band-top" aria-hidden="true"></canvas>
+    <canvas class="edge-band bottom" id="band-bottom" aria-hidden="true"></canvas>
+    <div class="cross-stage" aria-hidden="true"><div class="cross-wrap">
+            <canvas id="pixel-canvas" width="1280" height="1280"></canvas>
+            <a class="cross-label l1" href="#foundation"><span class="num">1</span> Multimodal Foundation Models</a>
+            <a class="cross-label l2" href="#arm1"><span class="num">2</span> Patient World Models and Digital Twins</a>
+            <a class="cross-label l3" href="#arm2"><span class="num">3</span> Agentic and Embodied Clinical Intelligence</a>
+            <a class="cross-label l4" href="#arm3"><span class="num">4</span> Clinical Translation and Post-Deployment Monitoring</a>
+        </div></div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        // A pinned pixel figure that re-arranges itself for each theme as you
+        // scroll: cross -> patient -> agent -> monitor.
         (function() {
-            var video = document.getElementById('ascii-video');
-            var toggle = document.getElementById('theme-toggle');
-            var icon = document.getElementById('theme-icon');
-            var mq = window.matchMedia('(prefers-color-scheme: dark)');
-            var currentSrc = '';
+            // The cross is sampled from the interlock design (interlock-rounded.png, embedded below); fall back to a drawn one if it can't load.
+            var logo = new Image();
+            logo.onload = function() { boot(logo); };
+            logo.onerror = function() { boot(null); };
+            // Embedded (not a file) so the canvas isn't tainted when opened via file://
+            logo.src = 'data:image/png;base64,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';
 
-            function isDark() {
-                var theme = document.documentElement.getAttribute('data-theme');
-                if (theme) return theme === 'dark';
-                return mq.matches;
+            function boot(img) {
+            var canvas = document.getElementById('pixel-canvas');
+            var ctx = canvas.getContext('2d');
+            var SIZE = 640, CELL = 2, SCALE = canvas.width / SIZE;
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // ---- shape painters (draw filled shapes onto a 640x640 sampling canvas) ----
+            function stadium(c, x, y, w, h, r) { c.beginPath(); c.roundRect(x, y, w, h, r); }
+            var shapes = [
+                function cross(c) {               // the interlocked cross
+                    if (img) {
+                        var w = 590, h = w * img.naturalHeight / img.naturalWidth;
+                        // The PNG is black on white: turn dark pixels into the shape.
+                        var tmp = document.createElement('canvas'); tmp.width = tmp.height = SIZE;
+                        var t = tmp.getContext('2d', { willReadFrequently: true });
+                        t.fillStyle = '#fff'; t.fillRect(0, 0, SIZE, SIZE);
+                        t.drawImage(img, (SIZE - w) / 2, (SIZE - h) / 2, w, h);
+                        var d = t.getImageData(0, 0, SIZE, SIZE), px = d.data;
+                        for (var i = 0; i < px.length; i += 4) { px[i + 3] = px[i] < 128 ? 255 : 0; px[i] = px[i + 1] = px[i + 2] = 0; }
+                        t.putImageData(d, 0, 0);
+                        c.drawImage(tmp, 0, 0);
+                        return;
+                    }
+                    function V() { stadium(c, 255, 75, 130, 490, 65); }
+                    function H() { stadium(c, 75, 255, 490, 130, 65); }
+                    c.lineWidth = 70; c.lineJoin = 'round'; c.strokeStyle = '#000';
+                    c.save(); c.beginPath(); c.rect(0, 320, SIZE, 320); c.clip(); H(); c.stroke(); c.restore();
+                    c.save(); c.beginPath(); c.rect(0, 320, SIZE, 320); c.clip();
+                    c.globalCompositeOperation = 'destination-out'; c.lineWidth = 98; V(); c.stroke(); c.restore();
+                    c.lineWidth = 70; V(); c.stroke();
+                    c.save(); c.beginPath(); c.rect(0, 0, SIZE, 320); c.clip();
+                    c.globalCompositeOperation = 'destination-out'; c.lineWidth = 98; H(); c.stroke(); c.restore();
+                    c.save(); c.beginPath(); c.rect(0, 0, SIZE, 320); c.clip(); c.lineWidth = 70; H(); c.stroke(); c.restore();
+                },
+                // The other icons share the cross's language: bold, round-ended bands, simple geometry.
+                function foundation(c) {          // multimodal: two overlapping circles (image + text) with a medical cross where they meet
+                    c.strokeStyle = '#000'; c.lineWidth = 24;
+                    [[240, 320], [400, 320]].forEach(function(p) { c.beginPath(); c.arc(p[0], p[1], 196, 0, Math.PI * 2); c.stroke(); });
+                },
+                function patient(c) {             // digital twin: a Vitruvian figure, with real body mass, in a circle and square
+                    c.strokeStyle = c.fillStyle = '#000'; c.lineCap = c.lineJoin = 'round';
+                    c.lineWidth = 8; c.beginPath(); c.arc(320, 334, 266, 0, Math.PI * 2); c.stroke();     // circle
+                    c.beginPath(); c.rect(132, 148, 376, 378); c.stroke();                                // square
+                    function circ(x, y, r) { c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.fill(); }
+                    function taper(x1, y1, r1, x2, y2, r2) {          // a limb that narrows from r1 to r2
+                        var a = Math.atan2(y2 - y1, x2 - x1) + Math.PI / 2, dx = Math.cos(a), dy = Math.sin(a);
+                        circ(x1, y1, r1); circ(x2, y2, r2);
+                        c.beginPath(); c.moveTo(x1 + dx * r1, y1 + dy * r1); c.lineTo(x2 + dx * r2, y2 + dy * r2);
+                        c.lineTo(x2 - dx * r2, y2 - dy * r2); c.lineTo(x1 - dx * r1, y1 - dy * r1); c.closePath(); c.fill();
+                    }
+                    c.beginPath(); c.ellipse(320, 190, 31, 39, 0, 0, Math.PI * 2); c.fill();               // head
+                    taper(320, 222, 13, 320, 250, 19);                                                     // neck
+                    c.beginPath(); c.moveTo(246, 258); c.quadraticCurveTo(320, 240, 394, 258);             // torso: shoulders, waist, hips
+                    c.lineTo(362, 334); c.lineTo(370, 378); c.lineTo(270, 378); c.lineTo(278, 334); c.closePath();
+                    c.fill(); c.lineWidth = 14; c.stroke();
+                    [-1, 1].forEach(function(sx) {
+                        taper(320 + sx * 60, 264, 21, 320 + sx * 186, 268, 9);                             // arm out
+                        taper(320 + sx * 58, 260, 20, 320 + sx * 160, 170, 9);                             // arm raised
+                        taper(320 + sx * 24, 376, 30, 320 + sx * 22, 520, 12);                             // leg together
+                        taper(320 + sx * 28, 372, 29, 320 + sx * 128, 520, 12);                            // leg apart
+                        circ(320 + sx * 190, 268, 12); circ(320 + sx * 164, 168, 12);                      // hands
+                        c.beginPath(); c.ellipse(320 + sx * 28, 526, 20, 9, 0, 0, Math.PI * 2); c.fill();   // feet
+                        c.beginPath(); c.ellipse(320 + sx * 138, 526, 22, 9, sx * 0.2, 0, Math.PI * 2); c.fill();
+                    });
+                    c.globalCompositeOperation = 'destination-out';                                       // clear disc for the logo
+                    c.beginPath(); c.arc(320, 302, 54, 0, Math.PI * 2); c.fill();
+                },
+                function agent(c) {               // agentic / embodied: a three-link robotic arm reaching for a target
+                    c.strokeStyle = c.fillStyle = '#000'; c.lineCap = c.lineJoin = 'round';
+                    c.beginPath(); c.roundRect(150, 556, 340, 44, 22); c.fill();         // base
+                    c.beginPath(); c.roundRect(262, 500, 116, 50, 18); c.fill();         // turntable
+                    var J0 = [320, 492], J1 = [196, 322], J2 = [372, 184], J3 = [470, 238];
+                    function link(a, b, w) { c.lineWidth = w; c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke(); }
+                    link(J0, J1, 50); link(J1, J2, 42); link(J2, J3, 32);
+                    [[J0, 40], [J1, 38], [J2, 34]].forEach(function(j) { c.beginPath(); c.arc(j[0][0], j[0][1], j[1], 0, Math.PI * 2); c.fill(); });
+                    link([436, 266], [436, 318], 18); link([504, 266], [504, 318], 18);   // gripper fingers
+                    c.lineWidth = 16; c.beginPath(); c.moveTo(436, 266); c.lineTo(504, 266); c.stroke();
+                    
+                    c.globalCompositeOperation = 'destination-out';
+                    [J0, J1, J2].forEach(function(j) { c.beginPath(); c.arc(j[0], j[1], 11, 0, Math.PI * 2); c.fill(); });
+                },
+                function monitor(c) {             // post-deployment monitoring: a monitor plotting a live time series; the logo sits on the chin
+                    c.strokeStyle = c.fillStyle = '#000'; c.lineCap = c.lineJoin = 'round';
+                    c.lineWidth = 22; c.beginPath(); c.roundRect(50, 40, 540, 468, 34); c.stroke();          // body
+                    c.lineWidth = 9; c.beginPath(); c.roundRect(86, 76, 468, 306, 10); c.stroke();           // screen
+                    c.lineWidth = 20; c.beginPath(); c.moveTo(320, 508); c.lineTo(320, 556); c.stroke();      // neck
+                    c.lineWidth = 22; c.beginPath(); c.moveTo(224, 590); c.lineTo(416, 590); c.stroke();      // base
+                    c.lineWidth = 9;                                                                          // axes
+                    c.beginPath(); c.moveTo(126, 104); c.lineTo(126, 340); c.lineTo(520, 340); c.stroke();
+                    c.lineWidth = 6; c.setLineDash([16, 12]);                                                 // alert threshold
+                    c.beginPath(); c.moveTo(126, 196); c.lineTo(520, 196); c.stroke(); c.setLineDash([]);
+                    c.lineWidth = 12; c.beginPath();                                                          // the time series, with an anomaly
+                    var pts = [[150,292],[172,274],[194,288],[216,262],[238,280],[260,254],[282,272],[304,246],[326,266],[348,240],[370,258],
+                               [388,232],[404,130],[420,226],[442,250],[464,224],[486,242],[508,214]];
+                    pts.forEach(function(p, i) { if (i) c.lineTo(p[0], p[1]); else c.moveTo(p[0], p[1]); });
+                    c.stroke();
+                    c.beginPath(); c.arc(508, 214, 14, 0, Math.PI * 2); c.fill();                             // latest reading
+                }
+            ];
+
+            // ---- sample each shape into grid cells ----
+            var off = document.createElement('canvas'); off.width = off.height = SIZE;
+            var octx = off.getContext('2d', { willReadFrequently: true });
+            var states = shapes.map(function(draw) {
+                octx.clearRect(0, 0, SIZE, SIZE); octx.save(); draw(octx); octx.restore();
+                var data = octx.getImageData(0, 0, SIZE, SIZE).data, pts = [];
+                for (var y = 0; y < SIZE; y += CELL) for (var x = 0; x < SIZE; x += CELL) {
+                    if (data[((y + CELL / 2) * SIZE + (x + CELL / 2)) * 4 + 3] > 128) pts.push([x, y]);
+                }
+                return pts;   // already in raster (row-major) order
+            });
+
+            // Crosses are stamped on the pixel grid itself so they are perfectly even:
+            // a plus with equal arms, three pixels thick.
+            function stampPlus(pts, cx, cy, arm, half) {
+                var ci = Math.round((cx - CELL / 2) / CELL), cj = Math.round((cy - CELL / 2) / CELL);
+                var key = {};
+                pts.forEach(function(p) { key[p[0] / CELL + ',' + p[1] / CELL] = p; });
+                for (var k = -arm; k <= arm; k++) for (var t = -half; t <= half; t++) {
+                    [[ci + k, cj + t], [ci + t, cj + k]].forEach(function(c) { key[c[0] + ',' + c[1]] = [c[0] * CELL, c[1] * CELL]; });
+                }
+                var out = Object.keys(key).map(function(k) { return key[k]; });
+                out.sort(function(a, b) { return a[1] - b[1] || a[0] - b[0]; });
+                return out;
+            }
+            function logoStamp(pts, cx, cy, size, factor) {
+                if (!img) return stampPlus(pts, cx, cy, Math.round(size / CELL / 4), 2);   // plain cross if the logo can't load
+                var tmp = document.createElement('canvas'); tmp.width = tmp.height = size;
+                var t = tmp.getContext('2d', { willReadFrequently: true });
+                t.fillStyle = '#fff'; t.fillRect(0, 0, size, size); t.imageSmoothingQuality = 'high';
+                var sc = size / Math.max(img.naturalWidth, img.naturalHeight), w = img.naturalWidth * sc, h = img.naturalHeight * sc;
+                t.drawImage(img, (size - w) / 2, (size - h) / 2, w, h);
+                var d = t.getImageData(0, 0, size, size).data;
+                var ox = Math.round((cx - size / 2) / CELL) * CELL, oy = Math.round((cy - size / 2) / CELL) * CELL, key = {};
+                pts.forEach(function(p) { key[p[0] / CELL + ',' + p[1] / CELL] = p; });
+                for (var y = 0; y < size; y += CELL) for (var x = 0; x < size; x += CELL) {
+                    if (d[(((y + CELL / 2) | 0) * size + ((x + CELL / 2) | 0)) * 4] < 128) {
+                        var gx = (ox + x) / CELL, gy = (oy + y) / CELL; key[gx + ',' + gy] = [gx * CELL, gy * CELL, factor === undefined ? 0.38 : factor];   // [2] = scatter factor: emblem pixels stay fairly crisp
+                    }
+                }
+                var out = Object.keys(key).map(function(k) { return key[k]; });
+                out.sort(function(a, b) { return a[1] - b[1] || a[0] - b[0]; });
+                return out;
+            }
+            states[2] = states[2].map(function(p) { return [p[0], p[1], 0.62]; });   // the Vitruvian figure: a little sharper than the rest
+            states[1] = logoStamp(states[1], 320, 320, 150);      // multimodal: the logo where the circles meet
+            states[2] = logoStamp(states[2], 320, 302, 88);       // patient: the logo on the heart
+            states[3] = logoStamp(states[3], 470, 392, 120);      // robot arm: the logo it reaches for
+            states[4] = logoStamp(states[4], 320, 446, 106, 0.16);       // monitoring: the logo on the monitor's chin
+
+            // ---- particles ----
+            var N = Math.max.apply(null, states.map(function(p) { return p.length; }));
+            var rnd = (function(seed) { return function() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; })(7);
+            var parts = [];
+            function gauss() { return (rnd() + rnd() + rnd() + rnd() - 2) * 1.2; }
+            for (var i = 0; i < N; i++) {
+                var rr = rnd(), ang = rnd() * 6.283, far = rr * rr * rr * rr * 16;      // most stay near the shape, a few stray far
+                parts.push({
+                    delay: rnd() * 0.35, swirl: (rnd() - 0.5) * 70,
+                    sx: gauss() * 1.5 + Math.cos(ang) * far, sy: gauss() * 1.5 + Math.sin(ang) * far,   // resting scatter: a fuzzy cloud around the shape
+                    ax: 0.8 + rnd() * 2.2, ay: 0.8 + rnd() * 2.2,                                          // continuous drift
+                    w1: 0.35 + rnd() * 1.1, w2: 0.35 + rnd() * 1.1, p1: rnd() * 6.283, p2: rnd() * 6.283,
+                    shade: Math.floor(rnd() * 3)
+                });
+            }
+            var targets = states.map(function(pts) {
+                return parts.map(function(_, i) { return pts[Math.floor(i * pts.length / N)]; });
+            });
+
+            function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+            var W = canvas.width, buf = new Uint32Array(W * W), img32 = new ImageData(new Uint8ClampedArray(buf.buffer), W, W);
+            var gradLUT = [new Uint32Array(W), new Uint32Array(W), new Uint32Array(W), new Uint32Array(W)];   // three shades, top (near-white blue) to bottom (brand blue)
+            for (var gy = 0; gy < W; gy++) {
+                var gg = gy / W;
+                gradLUT[3][gy] = (255 << 24) | (235 << 16) | (111 << 8) | 31;      // solid brand blue for the logo emblems
+                [0, 1, 2].forEach(function(sh) {
+                    var m = sh * 0.22;       // lighten by mixing toward white
+                    var r = 196 - 165 * gg, g = 224 - 113 * gg, b = 255 - 20 * gg;
+                    r += (255 - r) * m; g += (255 - g) * m; b += (255 - b) * m;
+                    gradLUT[sh][gy] = (255 << 24) | (Math.round(b) << 16) | (Math.round(g) << 8) | Math.round(r);
+                });
+            }
+            var blk = 3;   // small dots, like stippling
+
+            function render(f, time) {
+                var k = Math.min(states.length - 2, Math.max(0, Math.floor(f)));
+                var p = Math.min(1, Math.max(0, f - k));
+                var A = targets[k], B = targets[k + 1];
+                buf.fill(0);
+                for (var i = 0; i < N; i++) {
+                    var q = parts[i], t = Math.min(1, Math.max(0, (p - q.delay) / 0.65));
+                    var a = A[i], b = B[i], x, y;
+                    if (t <= 0) { x = a[0]; y = a[1]; }
+                    else if (t >= 1) { x = b[0]; y = b[1]; }
+                    else {
+                        var e = ease(t), s = Math.sin(Math.PI * e) * q.swirl;
+                        x = a[0] + (b[0] - a[0]) * e + s; y = a[1] + (b[1] - a[1]) * e - s * 0.6;
+                    }
+                    var fa = a[2] === undefined ? 1 : a[2], fb = b[2] === undefined ? 1 : b[2], fz = fa + (fb - fa) * Math.min(1, Math.max(0, t));   // emblem pixels stay sharp
+                    x += fz * (q.sx + q.ax * Math.sin(time * q.w1 + q.p1));       // fuzzy cloud + constant motion
+                    y += fz * (q.sy + q.ay * Math.sin(time * q.w2 + q.p2));
+                    var X = Math.round(x * SCALE), Y = Math.round(y * SCALE);
+                    if (X < 0 || Y < 0 || X > W - blk || Y > W - blk) continue;
+                    var col = gradLUT[fz < 0.7 ? 0 : q.shade][Y];
+                    for (var yy = 0; yy < blk; yy++) { var o = (Y + yy) * W + X; for (var xx = 0; xx < blk; xx++) buf[o + xx] = col; }
+                }
+                ctx.putImageData(img32, 0, 0);
             }
 
-            function apply() {
-                var dark = isDark();
-                document.body.style.background = dark ? '#0d1117' : '#ffffff';
-                icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-                var src = dark ? 'ascii_dark.mp4' : 'ascii_light.mp4';
-                if (src !== currentSrc) {
-                    currentSrc = src;
-                    video.src = src;
-                    video.load();
-                    video.play();
+            // ---- scroll -> state ----
+            var labels = document.querySelectorAll('.cross-label');
+            var arms = Array.prototype.slice.call(document.querySelectorAll('.arm'));
+            function targetF() {
+                var vh = window.innerHeight, y = window.scrollY, f = 0;
+                for (var k = 0; k < arms.length; k++) {
+                    var top = arms[k].getBoundingClientRect().top + y;
+                    var end = top - vh * 0.3, start = end - vh * 0.6;
+                    var t = Math.min(1, Math.max(0, (y - start) / (end - start)));
+                    if (t > 0) f = Math.max(f, k + t);
+                }
+                return Math.min(arms.length, f);
+            }
+            var cur = 0, last = -1;
+            function tick() {
+                var t = targetF();
+                cur = reduce ? t : cur + (t - cur) * 0.12;
+                if (Math.abs(cur - t) < 0.0005) cur = t;
+                var lo = Math.max(0, 1 - cur / 0.4).toFixed(3);
+                for (var li = 0; li < labels.length; li++) { labels[li].style.opacity = lo; labels[li].style.pointerEvents = lo > 0.3 ? '' : 'none'; }
+                render(cur, reduce ? 0 : performance.now() / 1000);
+                requestAnimationFrame(tick);
+            }
+            render(0, 0);
+            requestAnimationFrame(tick);
+            }
+        })();
+
+        // Stippled accent down the left margin, matching the figure: tiny dots, denser at the edge,
+        // each drifting on its own loop and flowing slowly with scroll.
+        (function() {
+            var cv = document.getElementById('left-pixels'), ctx = cv.getContext('2d');
+            var wrap = document.querySelector('.wrap');
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var w = 0, h = 0, dpr = 1, dots = [];
+            var rnd = (function(seed) { return function() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; })(11);
+            function size() {
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                w = Math.max(0, parseFloat(getComputedStyle(wrap).marginLeft) - 40); h = window.innerHeight;
+                cv.style.width = w + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+                dots = [];
+                var n = Math.floor(w * h / 16);
+                for (var i = 0; i < n; i++) {
+                    dots.push({
+                        x: w * Math.pow(rnd(), 1.8), y: rnd() * h,                       // denser toward the screen edge
+                        ax: 1 + rnd() * 3, ay: 1 + rnd() * 3, w1: 0.3 + rnd() * 1.1, w2: 0.3 + rnd() * 1.1,
+                        p1: rnd() * 6.283, p2: rnd() * 6.283, shade: Math.floor(rnd() * 3), sz: rnd() < 0.15 ? 2 : 1.4
+                    });
                 }
             }
+            function draw() {
+                var t = reduce ? 0 : performance.now() / 1000, off = reduce ? 0 : window.scrollY * 0.35;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
+                for (var i = 0; i < dots.length; i++) {
+                    var d = dots[i];
+                    var y = (((d.y - off + d.ay * Math.sin(t * d.w2 + d.p2)) % h) + h) % h;
+                    var x = d.x + d.ax * Math.sin(t * d.w1 + d.p1);
+                    var g = y / h, m = d.shade * 0.22;
+                    var r = 196 - 165 * g, gr = 224 - 113 * g, b = 255 - 20 * g;
+                    ctx.fillStyle = 'rgb(' + Math.round(r + (255 - r) * m) + ',' + Math.round(gr + (255 - gr) * m) + ',' + Math.round(b + (255 - b) * m) + ')';
+                    ctx.fillRect(x, y, d.sz, d.sz);
+                }
+                requestAnimationFrame(draw);
+            }
+            window.addEventListener('resize', size);
+            size(); draw();
+        })();
 
-            toggle.addEventListener('click', function() {
-                var dark = isDark();
-                document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
-                apply();
-            });
-
-            mq.addEventListener('change', function() {
-                if (!document.documentElement.getAttribute('data-theme')) apply();
-            });
-
-            apply();
+        // Stippled bands along the top and bottom edges on narrow screens (the left strip's counterpart).
+        (function() {
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var bands = [{ cv: document.getElementById('band-top'), top: true }, { cv: document.getElementById('band-bottom'), top: false }];
+            var rnd = (function(seed) { return function() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; })(23);
+            function setup(b) {
+                var dpr = Math.min(window.devicePixelRatio || 1, 2);
+                b.w = b.cv.clientWidth; b.h = b.cv.clientHeight; b.dpr = dpr;
+                if (!b.w) return;
+                b.cv.width = Math.round(b.w * dpr); b.cv.height = Math.round(b.h * dpr);
+                b.dots = [];
+                var n = Math.floor(b.w * b.h / 9);
+                for (var i = 0; i < n; i++) {
+                    var e = Math.pow(rnd(), 1.8) * b.h;                                  // distance from the screen edge: denser at the edge
+                    b.dots.push({ x: rnd() * b.w, e: e, ax: 1 + rnd() * 3, ay: 1 + rnd() * 3, w1: 0.3 + rnd() * 1.1, w2: 0.3 + rnd() * 1.1,
+                                  p1: rnd() * 6.283, p2: rnd() * 6.283, shade: Math.floor(rnd() * 3), sz: rnd() < 0.15 ? 2 : 1.4 });
+                }
+            }
+            function frame() {
+                var t = reduce ? 0 : performance.now() / 1000, sx = reduce ? 0 : window.scrollY * 0.25;
+                bands.forEach(function(b) {
+                    if (!b.w || b.cv.offsetParent === null) return;
+                    var ctx = b.cv.getContext('2d');
+                    ctx.setTransform(b.dpr, 0, 0, b.dpr, 0, 0); ctx.clearRect(0, 0, b.w, b.h);
+                    for (var i = 0; i < b.dots.length; i++) {
+                        var d = b.dots[i];
+                        var x = (((d.x + sx + d.ax * Math.sin(t * d.w1 + d.p1)) % b.w) + b.w) % b.w;
+                        var e = d.e + d.ay * Math.sin(t * d.w2 + d.p2), y = b.top ? e : b.h - e;
+                        var g = b.top ? 0.05 + 0.3 * (e / b.h) : 0.95 - 0.35 * (e / b.h), m = d.shade * 0.22;
+                        var r = 196 - 165 * g, gr = 224 - 113 * g, bl = 255 - 20 * g;
+                        ctx.fillStyle = 'rgb(' + Math.round(r + (255 - r) * m) + ',' + Math.round(gr + (255 - gr) * m) + ',' + Math.round(bl + (255 - bl) * m) + ')';
+                        ctx.fillRect(x, y, d.sz, d.sz);
+                    }
+                });
+                requestAnimationFrame(frame);
+            }
+            function all() { bands.forEach(setup); }
+            window.addEventListener('resize', all);
+            all(); frame();
         })();
     </script>
+
 </body>
 </html>

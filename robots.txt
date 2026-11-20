@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://embodied-clinical-intelligence.github.io/sitemap.xml
+Sitemap: https://frontier-clinical-ai.github.io/sitemap.xml
